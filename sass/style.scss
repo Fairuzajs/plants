@@ -1,0 +1,760 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap');
+
+
+$green-color: #499A18;
+$brick-color: #E06733;
+$grey-color: #717171;
+$dark-grey-color: #636060;
+$bg-section: #EDF2EC;
+$link-nav-color: #010201;
+$black-color: #000000;
+$white-color: #ffffff;
+
+$fz-h1: 45px;
+$fz-h2: 40px;
+$fz-medium: 20px;
+$fz-small: 16px;
+$ff-inika: 'Inika', serif;
+$ff-inter: 'Inter', sans-serif;
+
+$media320: 320px;
+$media380: 380px;
+$media575: 575px; //burger menu
+$media768: 768px;
+$media920: 920px;
+$media1024: 1024px;
+$media1200: 1200px;
+
+@mixin font-text($fs, $fw, $ff, $lh, $color) {
+    font-size: $fs;
+    font-weight: $fw;
+    font-family: $ff;
+    line-height: $lh;
+    color: $color;
+ }
+
+ @mixin responsive($media) {
+    @if $media == media1200 {
+        @media only screen and (max-width: $media1200) {
+            @content;
+        }
+    }
+    @if $media == media1024 {
+        @media only screen and (max-width: $media1024) {
+            @content;
+        }
+    }
+    @if $media == media920 {
+        @media only screen and (max-width: $media920) {
+            @content;
+        }
+    }
+    @if $media == media768 {
+        @media only screen and (max-width: $media768) {
+            @content;
+        }
+    }
+    @if $media == media575 {
+        @media only screen and (max-width: $media575) {
+            @content;
+        }
+    }
+    @if $media == media380 {
+        @media only screen and (max-width: $media380) {
+            @content;
+        }
+    }
+    @if $media == media320 {
+        @media only screen and (max-width: $media320) {
+            @content;
+        }
+    }
+ }
+
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-style: normal;
+}
+
+
+.wrapper {
+  width: 84.86%;
+  margin: 0 auto;
+  @include responsive(media768) {width: 86.97%;}
+  @include responsive(media380) {width: 86.84%;}
+}
+
+/* header */ 
+
+header {
+    background-color: $bg-section;
+}
+
+.heading {
+padding-top: 42px;
+padding-bottom: 42px;
+@include responsive(media768) {padding-top: 35px;
+padding-bottom: 35px;} 
+}
+
+.heading-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading-content__logo {
+    display: flex;
+    gap: 1px;
+    align-items: center;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+
+    span {
+     @include font-text($fz-small, 400 , $ff-inika,21px ,$black-color )
+    }
+}
+
+.heading-content__nav-menu {
+    @include responsive(media575) {
+        display: none;
+    }
+    ul {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 46px;
+        
+
+        li {
+            list-style: none;
+         a {
+                text-decoration: none;
+                @include font-text($fz-small, 400 , $ff-inika,50px ,$link-nav-color);
+                transition: all 1s;
+                &:hover {
+                    cursor: pointer;
+                    color: $brick-color;
+                    font-weight: 700;
+                }
+
+                
+            }
+        }
+    }
+}
+
+/*  section welcome */
+.welcome {
+    padding-top: 62px;
+    padding-bottom: 62px;
+    background-color: $bg-section;
+    @include responsive(media768) {padding-top: 40px; padding-bottom: 70px;}
+    @include responsive(media380) {padding-top: 24px; padding-bottom: 24px;}
+}
+
+.welcome-content {
+    display: flex;
+    column-gap: 15.55%;
+    justify-content: space-between;
+    align-items: center;
+    @include responsive(media768) {flex-direction: row-reverse;
+    column-gap: 42px;}
+}
+
+.welcome-content__img {
+    img {
+        max-width: 31.11vw;
+        height: 100%;
+        @include responsive(media575) {display: none;}
+        @include responsive(media768) {max-width: 36.45vw;}
+    }
+}
+
+.welcome-content__block {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    h1 {
+        @include font-text($fz-h1, 700 , $ff-inter,50px ,$grey-color);
+        @include responsive(media768) {font-size: 35px;}
+        @include responsive(media380) {font-size: 25px; line-height: 35px;}
+        span {
+            color: $green-color;
+        }
+    }
+    p {
+        @include font-text($fz-medium, 400 , $ff-inter, 35px ,$dark-grey-color);
+        padding-top: 42px;
+        padding-bottom: 48px;
+        @include responsive(media768) {padding-top: 30px; padding-bottom: 30px;}
+        @include responsive(media380) {
+            padding-top: 20px; 
+            padding-bottom: 20px;
+            font-size: $fz-small; 
+            line-height: 25px;}
+    }      
+
+    button {
+        width: 158px;
+        height: 44px;
+        border: 2px solid $brick-color;
+        border-radius: 10px;
+        transition: all 1s;
+
+        @include responsive(media380) { width: 100px;
+            height: 34px; }
+
+        a {
+        @include font-text($fz-small, 400 , $ff-inter, 20px ,$link-nav-color);
+        text-decoration: none;
+        transition: all 1s;
+        @include responsive(media380) {font-size: 10px;}
+      
+
+        &:hover {
+            cursor: pointer;
+            color: $white-color;
+        }
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: $brick-color;
+        }
+    }
+}
+
+/*  section about */
+
+.about {
+    padding-top: 93px;
+    padding-bottom: 94px;
+    @include responsive(media768) {padding-top: 40px;}
+    @include responsive(media380) {padding-top: 30px;
+    padding-bottom: 30px;}
+}
+
+.about-content {
+    display: flex;
+    gap: 153px;
+    align-items: center;
+    @include responsive(media768) {
+        flex-direction: column;
+        gap: 5.21vw;
+    }
+    @include responsive(media380) {
+        gap: 1px;
+    }
+}
+
+.about-content__text {
+    h2 {
+        @include font-text($fz-h2, 400 , $ff-inika, 52px ,$green-color);
+        padding-bottom: 40px; 
+        @include responsive(media768) {
+            font-size: 35px;
+            line-height: 45.61px;
+        }
+        @include responsive(media380) {
+            font-size: 25px;
+            line-height: 33px;
+        }
+        span {
+            color: $brick-color;
+        }
+    }
+
+    p {
+        @include font-text($fz-medium, 400 , $ff-inter, 30px ,$dark-grey-color);
+        @include responsive(media380) {
+            font-size: 15px;
+            line-height: 25px;
+        }
+        @include responsive(media768) {
+            font-size: 20px;
+            line-height: 30px;
+        }
+    }
+}
+
+.about-content__img {
+    img {
+        max-width: 32.22vw;
+        @include responsive(media768) {max-width: 32.55vw;}
+        @include responsive(media768) {max-width: 39.47vw;}
+    }
+}
+
+/*  section service */
+
+.service {
+    background-color: $bg-section;
+    padding-top: 40px;
+    padding-bottom: 121px;
+    @include responsive(media768) {
+        padding-top: 60px;
+        padding-bottom: 70px;
+    }
+    @include responsive(media380) {
+        padding-top: 30px;
+        padding-bottom: 27px;
+    }
+}
+
+.service-content {
+    display: flex;
+    row-gap: 90px;
+    flex-direction: column;
+}
+
+.service-content__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 217px;
+    column-gap: 140px;
+     @include responsive(media1024) {
+        flex-direction: column;
+        row-gap: 40px;
+        align-items: flex-start;
+        padding-right: 0;
+     }
+
+
+    h2 { width: 306px;
+        @include font-text($fz-h2, 400 , $ff-inika, 52px ,$green-color);
+       
+        @include responsive(media768) {
+            width: 39.84vw;
+            font-size: 35px;
+            line-height: 45.61px;
+        }
+        @include responsive(media768) {
+            width: 45vw;}
+        @include responsive(media380) {
+            font-size: 25px;
+            line-height: 32.57px;
+            width: 49.21vw;
+        }
+    }
+}
+
+.service-content__menu {
+    display: flex;
+    column-gap: 38px;
+    @include responsive(media575) {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    button {
+       width: 161px;
+       height: 50px;
+       transition: all 1s ;
+       border: 1px solid $brick-color;
+       border-radius: 5px;
+       @include font-text($fz-medium, 400 , $ff-inika, 26px ,$brick-color);
+       @include responsive(media575) { 
+        width: 140px;
+    }
+       @include responsive(media380) { 
+        width: 121px;
+    }
+    
+       &:hover {
+          color: $white-color;
+          background-color: $brick-color;
+          cursor: pointer;
+       }
+    
+    }
+}
+
+.service-content__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    //grid-template-columns:repeat(3, 330px) ;
+    //grid-template-rows: repeat(2, 1fr) ;
+    //column-gap: 116px;
+    column-gap: 8.05vw;
+    row-gap: 55px;
+    @include responsive(media1024) {
+        column-gap: 11vw;
+        row-gap: 45px;
+    }
+     @include responsive(media768) {
+        column-gap: 13.8vw;
+        row-gap: 38px;
+    }
+     @include responsive(media575) {
+        row-gap: 36px;
+        justify-content: center;
+    }
+     @include responsive(media380) {
+        row-gap: 34px;
+    }
+}
+   
+
+
+.service-content__card {
+    width: 330px;
+    border: 1px solid #E3E1D5;
+    border-radius: 0px 0px 20px 20px;
+    @include responsive(media768) {width: 280px;}
+    img {
+        max-width: 330px;
+        @include responsive(media768) {max-width: 280px;}}
+        text-align: center;
+
+    h4 {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        @include font-text($fz-medium, 700 , $ff-inter, 20px ,$brick-color);
+    }
+
+    p {
+        @include font-text($fz-small, 400 , $ff-inter, 20px ,$grey-color);
+        padding-bottom: 36px;
+    }
+}
+
+/*  section price */
+
+.prices {
+    padding-top: 30px;
+    padding-bottom: 115px;
+    @include responsive(media768) {
+        padding-top: 40px;
+        padding-bottom: 88px;
+    } 
+    @include responsive(media575) {
+        padding-top: 32px;
+        padding-bottom: 60px;
+    }
+    @include responsive(media380) {
+        padding-top: 25px;
+        padding-bottom: 40px;
+    }
+}
+
+.media768 {
+    display: none;
+    @include responsive(media920) {
+        display: block;
+        font-size: 38px;
+        line-height: 45px;
+        padding-bottom: 50px;
+
+    }
+    @include responsive(media768) {
+        font-size: 35px;
+        line-height: 42px;
+    }
+     @include responsive(media575) {
+        font-size: 30px;
+        line-height: 35px;
+        text-align: center;
+        padding-bottom: 45px; 
+    }
+    @include responsive(media380) {
+        font-size: 25px;
+        line-height: 30px;
+        text-align: center; 
+        padding-bottom: 40px;}
+    
+} 
+
+
+.media768-block {
+    display: flex;
+    justify-content: space-between;
+    //gap: 30.42%;
+    @include responsive(media768){
+        column-gap: 40px;
+    }
+    @include responsive(media575) {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+}
+
+.prices-content__left {
+
+    
+    h2 {
+        padding-bottom: 60px;
+        @include font-text($fz-h2, 700 , $ff-inter, 48px ,$black-color);
+        
+        @include responsive(media1024) {
+            font-size: 38px;
+            line-height: 45px;
+        }
+        @include responsive(media920) {
+           display: none;
+        }    
+    }  
+}
+
+.prices-content__block {
+    border: 1px solid #E3E1D5;
+    border-radius: 20px;
+    padding: 34px 41px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    .accordion {
+        padding: 16px 110px 16px 40px ;
+        width: 250px;
+        height: 50px;
+        background: #EDF2EC;
+        border-radius: 20px;
+        @include font-text($fz-medium, 700 , $ff-inter, 20px ,$black-color);
+        @include responsive(media575) {
+            
+            font-size: 18px; }
+        @include responsive(media380) {
+            padding: 16px 61px 16px 30px ;
+            font-size: 15px;
+            line-height: 20px;
+            width: 180px; }
+    }
+}
+
+.prices-content__right {
+    width: 452px;
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    align-items: end;
+    @include responsive(media575) {
+        align-items: center;
+        width: 60.52vw;
+        gap: 25px;
+    }
+    
+    @include responsive(media380) {
+        align-items: center;
+        width: 60.52vw;
+        gap: 14px;
+    }
+    h2 {
+        @include font-text($fz-h2, 700 , $ff-inter, 50px ,$black-color);
+        text-align: right;
+        span {
+            color: $green-color;
+        }
+
+         @include responsive(media1024) {
+            font-size: 30px;
+            line-height: 45px;
+        }
+       
+        @include responsive(media768) {
+            font-size: 25px;
+            line-height: 35px;
+        }
+          @include responsive(media575) {
+            font-size: 22px;      
+            text-align: center;
+            
+        }
+        @include responsive(media380) {
+            font-size: 20px;
+            
+    }  
+    }
+
+    button {
+        border: 1px solid $brick-color;
+        border-radius: 5px;
+        background-color: #fff;
+        padding: 12px 34px 12px 30px;
+        transition: all 1s;
+        text-decoration: none;
+         @include font-text($fz-medium, 700 , $ff-inika, 26px ,$brick-color);
+         @include responsive(media575) {
+            padding: 10px 28px;
+            font-size: 18px;
+        }
+         @include responsive(media380) {
+            padding: 8px 22px;
+            font-size: 15px;
+            line-height: 20px;
+        }
+        
+    &:hover {
+    cursor: pointer;
+     color: $white-color;
+     background-color: $brick-color;
+    }
+
+
+    }
+
+    img {
+        max-width: 10.55vw;
+        @include responsive(media1024) {
+            max-width: 15vw;
+        }
+        @include responsive(media768) {
+            max-width: 19.79vw;
+        }
+        @include responsive(media575) {
+            display: none;
+        }
+    }
+}
+
+/*  section contacts */
+
+.contacts {
+    background-color: $bg-section;
+    padding-top: 53px;
+    @include responsive(media768) {
+        padding-top: 40px;
+    } 
+    @include responsive(media380) {
+        padding-top: 25px;
+    } 
+}
+
+.contact-popup {
+    width: 448px;
+    height: 214px;
+    visibility: hidden;
+    display: none;
+}
+
+.contacts-content {
+    display: flex;
+    @include responsive(media1024) {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .media768-contact {
+        display: none;
+        @include responsive(media1024) {
+            display: block;
+            padding: 0px 0px 100px 0px;
+        }
+        @include responsive(media575) {
+            padding: 0px 0px 90px 0px;
+        }
+        @include responsive(media380) {
+            padding: 0px 0px 80px 0px;
+        }
+        @include font-text($fz-h2, 700 , $ff-inika, 52px ,$green-color);
+        @include responsive(media380){font-size: 25px; line-height: 33px; text-align: center;}
+        
+    }
+  
+    h2 {
+        padding-left: 113px;
+        padding-right: 64px;
+        padding-top: 7px;
+        padding-bottom: 439px;
+        @include font-text($fz-h2, 700 , $ff-inika, 52px ,$green-color);
+        @include responsive(media1024){display: none;}
+        
+    }
+
+
+    img {
+        max-width: 27.78vw;
+        @include responsive(media768) {
+            max-width: 26.04vw;
+           } 
+         @include responsive(media380) {
+            max-width: 26.31vw;
+         } 
+    }
+
+    .accordion-contacts {
+        margin-top: 95px; 
+        width: 450px;
+        height: 50px;
+        background: #D6E7D2;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 0px;
+        @include responsive(media1024) {width: 58.59vw; margin-top: 0;margin-bottom: 250px;} 
+        @include responsive(media575) {width: 60vw;} margin-bottom: 200px;
+        @include responsive(media380) {width: 78.94vw; margin-bottom: 132px; }
+        &:hover {
+            background: #C1E698;
+    border: 1px solid #D6E7D2;
+    border-radius: 0px;
+           }
+       .select-item {
+        display: block;
+        box-sizing: border-box;
+        width: 450px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        height: 50px;
+        background: #D6E7D2;
+            padding-left: 20px;
+            @include font-text($fz-medium, 400 , $ff-inter, 40px ,$grey-color);
+   
+        }
+    }
+}
+
+/*  section footer */
+
+.footer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include responsive(media768) {
+        flex-direction: column;
+        padding-top: 33px;
+        padding-bottom: 18px;
+    }
+    @include responsive(media380) {
+        padding-top: 33px;
+        padding-bottom: 18px;
+    }
+}
+
+.github {
+    display: flex;
+    gap: 20px;
+    span {
+        @include font-text($fz-medium, 400 , $ff-inter, 50px ,$black-color);
+    }
+}
+
+.rss {
+    p {
+        @include font-text($fz-medium, 400 , $ff-inter, 50px ,$black-color);
+    }
+}
+
+.nav-link {
+        display: flex;
+        gap:20px;
+        
+        li {
+            list-style: none;
+
+            a:hover {
+                cursor: pointer;
+            }
+        }
+    }
