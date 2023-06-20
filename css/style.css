@@ -682,7 +682,7 @@ header {
     font-size: 20px;
   }
 }
-.prices-content__right button {
+/* .prices-content__right button {
   border: 1px solid #E06733;
   border-radius: 5px;
   background-color: #fff;
@@ -712,7 +712,7 @@ header {
   cursor: pointer;
   color: #ffffff;
   background-color: #E06733;
-}
+} */
 .prices-content__right img {
   max-width: 10.55vw;
 }
